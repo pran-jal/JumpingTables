@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, Button } from 'react-native';
 
 //local
-import { styles } from './styles';
+import { styles } from './src/styles';
 
 
 const App = () => {
