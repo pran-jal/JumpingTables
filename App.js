@@ -1,24 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View, Button, Alert } from 'react-native';
+import { Text, View, Button, TextInput, Alert } from 'react-native';
 
 //local
 import { styles } from './src/styles';
 import { Table } from './src/Table';
 
-
-
-
-table = new Table()
 const App = () => {
+    
+    table = new Table();
+
 
     return (
             <View style={styles.container}>
                 <Text style = {styles.title}>Going from</Text>
-                <Button title={table.start_from}/>
+                <TextInput 
+                    style = {styles.input_box}
+                    keyboardType = 'numeric'
+                    placeholder='Enter a number greater that 2'
+                    placeholderTextColor = "#2A2A2A"
+                    id="start_from"
+                    name="end_from"
+                >  
+                    {table.start_from}           
+                </TextInput> 
+                
                 <Text style = {styles.title}> up to </Text>
-                <Button title={table.end_At}/>
-                {/* <Text style={styles.title}>Hello World!</Text> */}
-                <StatusBar style="auto" />
+                <TextInput 
+                    style={styles.input_box}
+                    keyboardType = 'numeric'
+                    placeholder='Enter a number greater that 2'
+                    placeholderTextColor = "#2A2A2A"
+                    name="end_at"
+
+                > 
+                    {table.end_at}                   
+                </TextInput> 
+                
+                <Text style = {styles.title}> with max multiplier </Text>
+                <TextInput 
+                    style={styles.input_box}
+                    keyboardType = 'numeric'
+                    placeholder='Enter a number greater that 2'
+                    placeholderTextColor= "#2A2A2A"
+                    id="max_multiplier"
+                    
+                > 
+                {table.max_multiplier}                   
+                </TextInput> 
+
+                <Button 
+                    style = {styles.button}
+                    title="START">
+                </Button>
             </View>
     );
 };

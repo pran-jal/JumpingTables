@@ -19,5 +19,19 @@ export const styles = StyleSheet.create({
         backgroundColor: "#011627",
         borderRadius: 7,
     },
+
+    input_box: {
+        backgroundColor: "#010110",
+        textAlign: "center",
+        color: "#fff",
+        // margin: 50,
+        marginTop: 10,
+        marginBottom: 50,
+        padding: 10,
+        fontSize: 20,
+        width: "70%",
+        borderRadius: 10,
+        
+    }
     
 });
