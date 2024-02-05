@@ -1,4 +1,4 @@
-import { Text, View, Button, TextInput, Alert } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 
 //local
 import { styles } from './src/styles';
@@ -6,7 +6,11 @@ import { Table } from './src/Table';
 
 const App = () => {
     
-    table = new Table();
+    const table = new Table();
+
+    function gettablevalue(){
+        return String(table.start_from);
+    }
 
 
     return (
@@ -17,8 +21,7 @@ const App = () => {
                     keyboardType = 'numeric'
                     placeholder='Enter a number greater that 2'
                     placeholderTextColor = "#2A2A2A"
-                    id="start_from"
-                    name="end_from"
+                    onChangeText={(text) => {table.start_from = text}}
                 >  
                     {table.start_from}           
                 </TextInput> 
@@ -29,8 +32,7 @@ const App = () => {
                     keyboardType = 'numeric'
                     placeholder='Enter a number greater that 2'
                     placeholderTextColor = "#2A2A2A"
-                    name="end_at"
-
+                    onChangeText={(text) => {table.end_at = text}}
                 > 
                     {table.end_at}                   
                 </TextInput> 
@@ -41,16 +43,19 @@ const App = () => {
                     keyboardType = 'numeric'
                     placeholder='Enter a number greater that 2'
                     placeholderTextColor= "#2A2A2A"
-                    id="max_multiplier"
-                    
+                    onChangeText={(text) => {table.max_multiplier = text}}
                 > 
-                {table.max_multiplier}                   
+                    {table.max_multiplier}                   
                 </TextInput> 
 
-                <Button 
+                <TouchableOpacity 
                     style = {styles.button}
-                    title="START">
-                </Button>
+                    onPress={() => Alert.alert(`${table.start_from} ${table.end_at} ${table.max_multiplier}`)}
+                >
+                    <Text style = {styles.button_text}>
+                        START
+                    </Text>
+                </TouchableOpacity>
             </View>
     );
 };
