@@ -4,6 +4,16 @@ export class Table {
     max_multiplier: number
     multiplicant: number | undefined
     multiplier: number | undefined
+    streak = 0
+    bonus = {
+        5: 2,
+        10: 3,
+        20: 4,
+        30: 5,
+        40: 8,
+        50: 10
+
+    }
 
     constructor(start: number = 2, end: number = 20, max_multiplier: number = 10) {
         this.start_from = start; // starts jumpping from here
@@ -30,4 +40,6 @@ export class Table {
             return true;
         return false;
     }
+
+    
 }
