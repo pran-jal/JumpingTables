@@ -41,5 +41,8 @@ export class Table {
         return false;
     }
 
+    get_score(){
+        return this.streak;
+    }
     
 }
