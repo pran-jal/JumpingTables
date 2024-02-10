@@ -1,11 +1,12 @@
-import { Alert, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 
-
-export const Questions = ({navigation}) => {
+export const Questions = ({route, navigation}) => {
+    const table = route.params;
+    console.log(route)
     return (
         <View>
-            <Text>This is question profile</Text>
+            <Text>{table.start_from}</Text>
         </View>
     );
 };
