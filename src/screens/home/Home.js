@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, Pressable } from 'react-native';
 
 //local
 import { styles } from './styles';
@@ -14,7 +14,7 @@ export const Home = ({navigation}) => {
             <Text style = {styles.title}>Going from</Text>
             <TextInput 
                 style = {styles.input_box}
-                keyboardType = 'numeric'
+                inputMode='numeric'
                 placeholder='Enter a number greater that 2'
                 placeholderTextColor = "#2A2A2A"
                 onChangeText={(text) => {table.start_from = text}}
@@ -25,7 +25,7 @@ export const Home = ({navigation}) => {
             <Text style = {styles.title}> up to </Text>
             <TextInput 
                 style={styles.input_box}
-                keyboardType = 'numeric'
+                inputMode = 'numeric'
                 placeholder='Enter a number greater that 2'
                 placeholderTextColor = "#2A2A2A"
                 onChangeText={(text) => {table.end_at = text}}
@@ -36,7 +36,7 @@ export const Home = ({navigation}) => {
             <Text style = {styles.title}> with max multiplier </Text>
             <TextInput 
                 style={styles.input_box}
-                keyboardType = 'numeric'
+                inputMode = 'numeric'
                 placeholder='Enter a number greater that 2'
                 placeholderTextColor= "#2A2A2A"
                 onChangeText={(text) => {table.max_multiplier = text}}
@@ -44,14 +44,17 @@ export const Home = ({navigation}) => {
             > 
             </TextInput>
 
-            <TouchableOpacity 
+            <Pressable 
                 style = {styles.button}
-                onPress={() => navigation.navigate('Questions', table)}
+                onPress={() => navigation.navigate({
+                    name: 'Questions',
+                    params: table,
+                })}
             >
                 <Text style = {styles.button_text}>
                     START
                 </Text>
-            </TouchableOpacity>
+            </Pressable>
         </View>
     );
 };
