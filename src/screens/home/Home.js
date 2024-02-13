@@ -18,7 +18,7 @@ export const Home = ({navigation}) => {
                 placeholder='Enter a number greater that 2'
                 placeholderTextColor = "#2A2A2A"
                 onChangeText={(text) => {table.start_from = text}}
-                value={table.start_from}
+                defaultValue={String(table.start_from)}
             >  
             </TextInput> 
         
@@ -29,7 +29,7 @@ export const Home = ({navigation}) => {
                 placeholder='Enter a number greater that 2'
                 placeholderTextColor = "#2A2A2A"
                 onChangeText={(text) => {table.end_at = text}}
-                value={table.end_at}                  
+                defaultValue ={String(table.end_at)}      
             > 
             </TextInput> 
         
@@ -40,7 +40,7 @@ export const Home = ({navigation}) => {
                 placeholder='Enter a number greater that 2'
                 placeholderTextColor= "#2A2A2A"
                 onChangeText={(text) => {table.max_multiplier = text}}
-                value={table.max_multiplier}                
+                defaultValue = {String(table.max_multiplier)}             
             > 
             </TextInput>
 
@@ -48,7 +48,11 @@ export const Home = ({navigation}) => {
                 style = {styles.button}
                 onPress={() => navigation.navigate({
                     name: 'Questions',
-                    params: table,
+                    params: {
+                        start: table.start_from,
+                        end: table.end_at,
+                        max_multiplier: table.max_multiplier
+                    }
                 })}
             >
                 <Text style = {styles.button_text}>

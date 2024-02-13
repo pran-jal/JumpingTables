@@ -4,16 +4,8 @@ export class Table {
     max_multiplier: number
     multiplicant: number | undefined
     multiplier: number | undefined
-    streak = 0
-    bonus = {
-        5: 2,
-        10: 3,
-        20: 4,
-        30: 5,
-        40: 8,
-        50: 10
+    options: Array<number>| undefined
 
-    }
 
     constructor(start: number = 2, end: number = 20, max_multiplier: number = 10) {
         this.start_from = start; // starts jumpping from here
@@ -23,15 +15,26 @@ export class Table {
 
 
     jump() {
-        this.multiplicant = Math.floor(Math.random() * this.end_at) + this.start_from;
+        this.multiplicant = Math.floor(Math.random() * (this.end_at - this.start_from + 1)) + this.start_from;
         this.multiplier = Math.floor(Math.random() * this.max_multiplier) + 1;
+
+        let options = [];
+        for(var i=0; i<3; i++) {
+            options.push((Math.floor(Math.random() * 7) + this.multiplicant) * (Math.floor(Math.random() * 7) + this.multiplier));
+        }
+        options.shift();
+        options.sort(() => Math.random() - 0.5);
+        console.log(options)
+        this.options = options;
+        
+        return `${this.multiplicant} * ${this.multiplier} is`;
     }
 
 
     calc_answer() {
         if (this.multiplicant && this.multiplier)
             return this.multiplicant * this.multiplier;
-        return "Cannot calculate answer. call \"jump\" before calculating answer"
+        return "Cannot calculate answer. call \"jump\" before calculating answer";
     }
 
 
@@ -41,8 +44,17 @@ export class Table {
         return false;
     }
 
-    get_score(){
-        return this.streak;
-    }
+    // get_options() {
+    //     if (!(this.multiplicant && this.multiplier))
+    //         return "Cannot calculate answer. call \"jump\" before getting options";
+        
+    //     let options = [0,0,0,0];
+    //     for(var i=0; i<4; i++) {
+    //         options[Math.floor(Math.random() * (4)) + 0] = (Math.floor(Math.random() * 7) + this.multiplicant) * (Math.floor(Math.random() * 7) + this.multiplier) 
+    //     }
+    //     this.options = options;
+    //     return options;
+    // }
+
     
 }
