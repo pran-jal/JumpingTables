@@ -18,14 +18,16 @@ export class Table {
         this.multiplicant = Math.floor(Math.random() * (this.end_at - this.start_from + 1)) + this.start_from;
         this.multiplier = Math.floor(Math.random() * this.max_multiplier) + 1;
 
-        let options = [];
+        let options : Array<number>= [];
         for(var i=0; i<3; i++) {
             options.push((Math.floor(Math.random() * 7) + this.multiplicant) * (Math.floor(Math.random() * 7) + this.multiplier));
         }
-        options.shift();
-        options.sort(() => Math.random() - 0.5);
-        console.log(options)
+
+        // options.shift();
+        // options.sort(() => Math.random() - 0.5);
         this.options = options;
+        this.options.push(this.calc_answer());
+        console.log(options);
         
         return `${this.multiplicant} * ${this.multiplier} is`;
     }
