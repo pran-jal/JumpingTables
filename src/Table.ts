@@ -5,12 +5,12 @@ export class Table {
     multiplicant: number | undefined
     multiplier: number | undefined
     options: Array<number>| undefined
-
+    
 
     constructor(start: number = 2, end: number = 20, max_multiplier: number = 10) {
-        this.start_from = start; // starts jumpping from here
-        this.end_at = end; // can jump upto here
-        this.max_multiplier = max_multiplier; // can multiply upto here
+        this.start_from = Number(start); // starts jumpping from here
+        this.end_at = Number(end); // can jump upto here
+        this.max_multiplier = Number(max_multiplier); // can multiply upto here
     }
 
 
@@ -20,11 +20,9 @@ export class Table {
 
         let options : Array<number>= [];
         for(var i=0; i<3; i++) {
-            options.push((Math.floor(Math.random() * 7) + this.multiplicant) * (Math.floor(Math.random() * 7) + this.multiplier));
+            options.push((Math.floor(Math.random() * 5) + this.multiplicant) * (Math.floor(Math.random() * 5) + this.multiplier));
         }
 
-        // options.shift();
-        // options.sort(() => Math.random() - 0.5);
         this.options = options;
         this.options.push(this.calc_answer());
         console.log(options);
