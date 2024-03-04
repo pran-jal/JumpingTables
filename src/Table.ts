@@ -1,3 +1,7 @@
+import { suffle } from "./utils/base.js"
+
+
+
 export class Table {
     start_from: number
     end_at: number
@@ -18,14 +22,17 @@ export class Table {
         this.multiplicant = Math.floor(Math.random() * (this.end_at - this.start_from + 1)) + this.start_from;
         this.multiplier = Math.floor(Math.random() * this.max_multiplier) + 1;
 
-        let options : Array<number>= [];
-        for(var i=0; i<3; i++) {
-            options.push((Math.floor(Math.random() * 5) + this.multiplicant) * (Math.floor(Math.random() * 5) + this.multiplier));
+        let options : Array<number>= [this.calc_answer()];
+
+        while (options.length != 4) {
+            var option = (Math.floor(Math.random() * 3) + this.multiplicant) * (Math.floor(Math.random() * 3) + this.multiplier);
+            if (!(options.includes(option))) {
+                options.push(option);
+            }
         }
 
         this.options = options;
-        this.options.push(this.calc_answer());
-        console.log(options);
+        suffle(this.options);
         
         return `${this.multiplicant} * ${this.multiplier} is`;
     }
@@ -34,7 +41,7 @@ export class Table {
     calc_answer() {
         if (this.multiplicant && this.multiplier)
             return this.multiplicant * this.multiplier;
-        return "Cannot calculate answer. call \"jump\" before calculating answer";
+        throw "Cannot calculate answer. call \"jump\" before calculating answer";
     }
 
 
@@ -43,18 +50,5 @@ export class Table {
             return true;
         return false;
     }
-
-    // get_options() {
-    //     if (!(this.multiplicant && this.multiplier))
-    //         return "Cannot calculate answer. call \"jump\" before getting options";
-        
-    //     let options = [0,0,0,0];
-    //     for(var i=0; i<4; i++) {
-    //         options[Math.floor(Math.random() * (4)) + 0] = (Math.floor(Math.random() * 7) + this.multiplicant) * (Math.floor(Math.random() * 7) + this.multiplier) 
-    //     }
-    //     this.options = options;
-    //     return options;
-    // }
-
     
 }
