@@ -37,7 +37,11 @@ export const Questions = ({route, navigation}) => {
                     style={styles.answer_button}
                     onPress={this.change_text}
                 >
-                    <Text>{this.state.show_answer}</Text>
+                    <Text
+                        style={styles.option_button_text}
+                    >
+                        {this.state.show_answer}
+                    </Text>
                 </Pressable>
             )
         }

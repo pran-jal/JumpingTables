@@ -26,13 +26,13 @@ abstract class Theme {
 
 class DarkTheme extends Theme {
     Container = {
-        backgroundColor: "#000"
+        backgroundColor: "#1f1f1f"
     }
     Title = {
         color: "#ffffff"
     }
     Button = {
-        backgroundColor: "#ffffee",
+        backgroundColor: "#fffeee",
         borderBlockColor: "#000000" 
     }
     ButtonText = {
@@ -46,13 +46,29 @@ class DarkTheme extends Theme {
 
 class LightTheme extends Theme {
     Container = {
-        backgroundColor: "#fff"
+        backgroundColor: "#f1f1f1"
+    }
+    Title = {
+        color: "#000000"
+    }
+    Button = {
+        backgroundColor: "#1f1f1f",
+        borderBlockColor: "#ffffff" 
+    }
+    ButtonText = {
+        color: "#ffffff" 
+    }
+    InputBox = { 
+        backgroundColor: "#ffffff",
+        color: "#000000" 
     }
 }
 
 
-export function getTheme(theme_name: string) {
-    if (theme_name == "light")
-        return new LightTheme()
-    return new DarkTheme()
+export function getTheme(theme_name: string = "light") {
+    return {
+        "light": new LightTheme(),
+        "dark": new DarkTheme()
+    
+    }[theme_name.toLowerCase()]
 }
