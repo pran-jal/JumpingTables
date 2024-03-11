@@ -45,19 +45,25 @@ function getStyles(theme_name) {
         },
 
         option_container:  {
-            margin: "20%",
-            position: "relative"
+            margin: "5%",
+            position: "relative",
+        },
+
+        flex_container: {
+            flex: 2,
+            flexDirection: "row",
         },
 
         option: {
             backgroundColor: theme.Button.backgroundColor,
-            width: "100%",
+            width: "50%",
             borderRadius: 10,
             alignItems: 'center',
             padding: 10,
             borderBlockColor: theme.Button.borderBlockColor,
             alignSelf: "center",
-            margin: 10
+            margin: 7,
+            flex: 2,
         },
 
         option_button_text: {
@@ -65,7 +71,7 @@ function getStyles(theme_name) {
             color: theme.ButtonText.color
         },
 
-        input_box: {
+        display_box: {
             alignSelf: "center",
             backgroundColor: theme.InputBox.backgroundColor,
             textAlign: "center",

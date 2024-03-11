@@ -23,7 +23,9 @@ export const Questions = ({route, navigation}) => {
                     show_answer: this.props.table.calc_answer(),
                     showed: true
                 });
-            } else {
+            } 
+            
+            else {
                 this.setState({
                     show_answer: "Show Answer",
                     showed: false
@@ -51,41 +53,44 @@ export const Questions = ({route, navigation}) => {
         <View style={styles.container}>
             <Text style = {styles.title}>what is</Text>
             <TextInput 
-                style = {styles.input_box}
+                style = {styles.display_box}
                 readOnly = {true}
                 value = {table.jump()}
             >
             </TextInput>
 
-            <View
-                style = {styles.option_container}
-            >
-                <Pressable style = {styles.option}>
-                    <Text style = {styles.option_button_text}>
-                        {table.options[0]}
-                    </Text>
-                </Pressable>
-    
-                <Pressable style = {styles.option}>
-                    <Text style = {styles.option_button_text}>
-                        {table.options[1]}
-                    </Text>
-                </Pressable>
-    
-                <Pressable style = {styles.option}>
-                    <Text style = {styles.option_button_text}>
-                            {table.options[2]}
-                    </Text>
-                </Pressable>
+            <View style = {styles.option_container}>
 
-                <Pressable style = {styles.option}>
-                    <Text style = {styles.option_button_text}>
-                        {table.options[3]}
-                    </Text>
-                </Pressable>
+                <View style = {styles.flex_container}>
+                    <Pressable style = {styles.option}>
+                        <Text style = {styles.option_button_text}>
+                            {table.options[0]}
+                        </Text>
+                    </Pressable>
+    
+                    <Pressable style = {styles.option}>
+                        <Text style = {styles.option_button_text}>
+                            {table.options[1]}
+                        </Text>
+                    </Pressable>
+                </View>
+                
+                <View style = {styles.flex_container}>
+                    <Pressable style = {styles.option}>
+                        <Text style = {styles.option_button_text}>
+                                {table.options[2]}
+                        </Text>
+                    </Pressable>
+
+                    <Pressable style = {styles.option}>
+                        <Text style = {styles.option_button_text}>
+                            {table.options[3]}
+                        </Text>
+                    </Pressable>
+                </View>
+            
             </View>
 
-          
             <Answer table ={table}/>
 
             <Pressable
