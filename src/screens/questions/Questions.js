@@ -49,9 +49,18 @@ export const Questions = ({route, navigation}) => {
         }
     }
 
+
+    function check_answer(option=null, user_answer=null) {
+        console.log(table.check_answer({option: option}));
+    }
+
+
     return (
         <View style={styles.container}>
-            <Text style = {styles.title}>what is</Text>
+            <View>
+                <Text style = {styles.title}>what is</Text>
+                <Text style = {styles.score}>SCORE</Text>
+            </View>
             <TextInput 
                 style = {styles.display_box}
                 readOnly = {true}
@@ -62,13 +71,19 @@ export const Questions = ({route, navigation}) => {
             <View style = {styles.option_container}>
 
                 <View style = {styles.flex_container}>
-                    <Pressable style = {styles.option}>
+                    <Pressable 
+                        style = {styles.option}
+                        onPress={() => check_answer(option = 0)}
+                    >
                         <Text style = {styles.option_button_text}>
                             {table.options[0]}
                         </Text>
                     </Pressable>
     
-                    <Pressable style = {styles.option}>
+                    <Pressable 
+                        style = {styles.option}
+                        onPress={() => check_answer(option = 1)}
+                    >
                         <Text style = {styles.option_button_text}>
                             {table.options[1]}
                         </Text>
@@ -76,13 +91,19 @@ export const Questions = ({route, navigation}) => {
                 </View>
                 
                 <View style = {styles.flex_container}>
-                    <Pressable style = {styles.option}>
+                    <Pressable 
+                        style = {styles.option}
+                        onPress={() => check_answer(option = 2)}
+                    >
                         <Text style = {styles.option_button_text}>
                                 {table.options[2]}
                         </Text>
                     </Pressable>
 
-                    <Pressable style = {styles.option}>
+                    <Pressable 
+                        style = {styles.option}
+                        onPress={() => check_answer(option = 3)}
+                    >
                         <Text style = {styles.option_button_text}>
                             {table.options[3]}
                         </Text>

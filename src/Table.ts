@@ -45,10 +45,23 @@ export class Table {
     }
 
 
-    check_answer(user_answer: number) {
-        if (this.calc_answer() === user_answer)
-            return true;
-        return false;
+    check_answer({user_answer = null, option = null} = {}) {
+        console.log(user_answer, option);
+        if ((user_answer==null)&&(!option==null))
+            throw "Please choose an option or provide an answer"
+        
+        if (user_answer!=null) {
+            if (this.calc_answer() === user_answer)
+                return true;
+            return false;
+        }
+
+        if (option!=null) {
+            if (this.calc_answer() === this.options[option])
+                return true;
+            return false;
+        }
+
     }
     
 }

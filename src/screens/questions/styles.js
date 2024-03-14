@@ -18,6 +18,15 @@ function getStyles(theme_name) {
             alignItems: "flex-start",
             paddingTop: 10,
             paddingLeft: 10
+        },        
+        
+        score: {
+            fontSize: 20,
+            color: theme.Title.color,
+            alignContent: "flex-end",
+            alignItems: "flex-end",
+            paddingTop: 10,
+            paddingLeft: 10
         },
 
         button: {
@@ -50,7 +59,6 @@ function getStyles(theme_name) {
         },
 
         flex_container: {
-            flex: 2,
             flexDirection: "row",
         },
 
